@@ -17,6 +17,14 @@ app.post("/upload", upload.single('file'), function (request, response) {
         response.status(200).send("File uploaded successfully")
         console.log(request.file)
         console.log("Name:", request.file.originalname)
+        let oldPath = request.file.path
+        let newPath = "uploads/" + request.file.originalname
+        fs.rename(oldPath, newPath, (err) => {
+            if (err) {
+                console.error(err)
+            }
+            console.log("Rename complete")
+        })
     } else {
         response.status(400).send("File failed to upload")
     }
@@ -38,10 +46,17 @@ app.get("/uploads", function (request, response) {
 app.get("/uploads/:filename", function (request, response) {
     let filename = request.params.filename
     let filepath = path.join(__dirname, "uploads", filename)
+
+    console.log("Attempting to download", filename)
+
     response.download(filepath, function (err) {
         if (err) {
             console.error("Error downloading")
-            response.status(500).send('Error downloading file')
+            if (!response.headersSent) {
+                response.status(500).send('Error downloading file')
+            }
+        } else {
+            console.log('user downloaded file:', filename)
         }
     })
     // fs.readFile("./uploads/" + filename, "utf-8",(err, data) => {
