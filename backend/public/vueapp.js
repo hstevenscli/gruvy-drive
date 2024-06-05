@@ -49,8 +49,17 @@ Vue.createApp({
                 console.log(response.status);
             })
         },
+        deleteFile: function (filename) {
+            let yes = true; //confirm("Are you sure you want to delete " + filename + "?")
+            if (yes) {
+                fetch("/uploads/" + filename, {
+                    method: "DELETE",
+                }).then((response) => {
+                    this.getFileNames();
+                });
+            }
+        },
     },
-
     mounted: function () {
         const form = document.querySelector("form");
         form.addEventListener('submit', this.handleSubmit.bind(this));

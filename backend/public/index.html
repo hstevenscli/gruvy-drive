@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Grive</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <div id="app">
@@ -13,19 +14,20 @@
             <h1>{{ headerString }}</h1>
         </header>
 
-        <h2>Upload Document</h2>
+        <h2 class="upload-h2">Upload Document</h2>
         <form action="/upload" method="post" enctype="multipart/form-data">
             <label for="file">File </label>
-            <input id="file" name="file" type="file" />
+            <input id="file" name="file" type="file" multiple/>
             <br><br>
             <button class="button-upload">Upload</button>
         </form>
 
 
         <h2>Retrieve Documents</h2>
-        <ul>
-            <li v-for="filename in fileNames" @click="fileClicked(filename)" :key="filename">
-                <a :href="'/uploads/' + filename">{{filename}}</a>
+        <ul class="file-list">
+            <li v-for="filename in fileNames" :key="filename">
+                <a class="displayed-file" :href="'/uploads/' + filename">{{filename}}</a>
+                <i style="color: red; cursor: pointer;" @click="deleteFile(filename)" class="glyphicon glyphicon-remove"></i>
             </li>
         </ul>
 
