@@ -3,6 +3,7 @@ Vue.createApp({
         return {
             headerString: "Grive",
             fileNames: [],
+            audioFiles: [],
         };
     },
     methods: {
@@ -38,11 +39,22 @@ Vue.createApp({
             fetch("/uploads").then((response) => {
                 if (response.status === 200) {
                     response.json().then((files_from_server) => {
-                        console.log(files_from_server);
+                        // console.log(files_from_server);
                         this.fileNames = files_from_server;
+                        this.sortFiles();
+                        console.log("audiofiles:", this.audioFiles);
                     })
                 }
             })
+        },
+        sortFiles: function () {
+            this.audioFiles = [];
+            for (let audioFile of this.fileNames) {
+                if (audioFile.endsWith("mp4") || audioFile.endsWith("mp3")) {
+                    this.audioFiles.push(audioFile);
+                }
+            }
+            // console.log("audiofiles:", this.audioFiles);
         },
         fileClicked: function (filename) {
             fetch("/uploads/" + filename).then((response) => {
@@ -66,6 +78,7 @@ Vue.createApp({
     },
     created: function () {
         this.getFileNames();
+
 
     }
 }).mount("#app")

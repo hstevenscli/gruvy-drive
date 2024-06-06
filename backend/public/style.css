@@ -38,7 +38,7 @@ form .button-upload {
     border-radius: 4px;
     cursor: pointer;
     font-size: 1em;
-    width: 20%
+    width: auto;
 }
 
 form .button-upload:hover {
