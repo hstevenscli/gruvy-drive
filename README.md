@@ -20,14 +20,15 @@ As the app stands right now, it does work and you could use it, but you would ne
 node index.js
 ```
 3. Connect to the app.
+
 From the same computer (the app runs on port 8080 by default)
 "localhost:8080"
 
 From a different computer on the same network
-"<ip addr of computer running the app>:8080"
+"ip addr of computer running the app:8080"
 
 With a VPN like tailscale
-"<ip assigned in VPN>:8080"
+"ip assigned in VPN:8080"
 
 ![image](./photos/tailscale_example.png)
 
