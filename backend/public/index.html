@@ -26,6 +26,7 @@
         <h2>Retrieve Documents</h2>
         <ul class="file-list">
             <li v-for="filename in fileNames" :key="filename">
+                <!-- <button @click="viewFile(filename)" style="margin-right:5px;">View</button> -->
                 <a class="displayed-file" :href="'/uploads/' + filename">{{filename}}</a>
                 <i style="color: red; cursor: pointer;" @click="deleteFile(filename)" class="glyphicon glyphicon-remove"></i>
             </li>

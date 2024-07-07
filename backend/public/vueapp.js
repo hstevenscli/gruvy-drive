@@ -4,6 +4,7 @@ Vue.createApp({
             headerString: "Grive",
             fileNames: [],
             audioFiles: [],
+            fileContents: "",
         };
     },
     methods: {
@@ -70,6 +71,11 @@ Vue.createApp({
                     this.getFileNames();
                 });
             }
+        },
+        viewFile: function (filename) {
+            fetch("/uploads/" + filename).then((response) => {
+                console.log(response.text());
+            })
         },
     },
     mounted: function () {

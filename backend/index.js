@@ -3,6 +3,7 @@ const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
 
+
 var app = express();
 
 function getFormattedDate() {
@@ -29,7 +30,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 app.use(express.static("public"))
-
+app.use(express.urlencoded({ extended: true }));
 
 
 // TODO
@@ -88,6 +89,14 @@ app.get("/uploads/:filename", function (request, response) {
     })
 })
 
+
+app.get("/youtube", function (request, response) {
+    let videoName = request.body.video_name
+    let channelName = request.body.channel_name
+    console.log(videoName)
+    console.log(channelName)
+    response.status(200).send("Found video. " + "name: " + videoName + " channel: " + channelName)
+})
 
 app.delete("/uploads/:filename", function (request, response) {
     const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress
