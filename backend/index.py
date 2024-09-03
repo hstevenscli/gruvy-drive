@@ -3,7 +3,7 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/hello", methods=['GET'])
+@app.route("/", methods=['GET'])
 def hello_world():
     print("something print")
     return "<p>Hello, World!</p>"
@@ -15,4 +15,4 @@ def get_files():
 
 @app.route("/download", methods=['POST'])
 def download_video():
-    return
+    return "downlaod"

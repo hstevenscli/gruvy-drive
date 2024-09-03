@@ -2,6 +2,10 @@ const express = require("express")
 const multer = require("multer")
 const path = require("path")
 const fs = require("fs")
+const { spawn } = require('child_process')
+const ytdl = require('ytdl-core');
+const youtubedl = require('youtube-dl-exec');
+// const ls = spawn(
 
 
 var app = express();
@@ -90,13 +94,10 @@ app.get("/uploads/:filename", function (request, response) {
 })
 
 
-app.get("/youtube", function (request, response) {
-    let videoName = request.body.video_name
-    let channelName = request.body.channel_name
-    console.log(videoName)
-    console.log(channelName)
-    response.status(200).send("Found video. " + "name: " + videoName + " channel: " + channelName)
+app.post("/youtube", function (request, response) {
+    console.log()
 })
+
 
 app.delete("/uploads/:filename", function (request, response) {
     const ip = request.headers['x-forwarded-for'] || request.connection.remoteAddress
