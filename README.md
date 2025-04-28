@@ -10,7 +10,11 @@ Gruvy Drive is a simple 'Google Drive' clone, designed to store and retrieve doc
 
 ## Authorization and Security
 
-Currently, there is no built-in authorization or security since the app is not exposed to the open internet. Access is controlled via a VPN (e.g., Tailscale). If the app is exposed to the internet, anyone could potentially upload, view, and delete files in the drive directory.
+> ⚠️ **Warning:** Do not run this app on an open network!
+
+Currently, there is no built-in authorization or security since the app is not meant to run on the open internet. 
+Access is controlled via a VPN (e.g., Tailscale). 
+If the app is exposed to the internet, anyone could potentially upload, view, and delete files in the drive directory.
 
 ## How to Use
 
