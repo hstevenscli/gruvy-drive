@@ -7,7 +7,6 @@ Gruvy Drive is a simple 'Google Drive' clone, designed to store and retrieve doc
 - **File Upload**: Upload files to the server directory.
 - **File Download**: Download files from the server directory.
 - **File Deletion**: Delete files from the server directory.
-- **YouTube Video Downloader**: Download YouTube videos directly into the server directory by providing a URL or search terms.
 
 ## Authorization and Security
 
