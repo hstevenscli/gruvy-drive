@@ -17,8 +17,8 @@ Currently, there is no built-in authorization or security since the app is not e
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository-url>
-    cd <repository-directory>
+    git clone git@github.com:hstevenscli/gruvy-drive.git
+    cd gruvy-drive
     ```
 
 2. **Run the app**:
